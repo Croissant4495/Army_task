@@ -26,11 +26,14 @@ public:
 
     void add_vehicle(vehicles* new_vehicle);
 
-    // All soldiers attack
+    // All soldiers and vehicles attack
     void attack_all();
 
     // specific soldier attack
-    void attack_name(string name);
+    void attack_soldier_name(string name);
+    
+    // specific vehicle attack
+    void attack_vehicle_name(string name);
 
     // All vehicles move
     void move_all();
