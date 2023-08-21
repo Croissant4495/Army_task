@@ -15,12 +15,6 @@ public:
     string special_ability;
     string Rank;
 
-    soldiers (string n,double d,string R)
-    {
-        name=n;
-        damage =d;
-        Rank =R;
-    }
     ~soldiers()
     {
         cout << "THE WAR IS OVER!!";
@@ -35,18 +29,24 @@ public:
 };
 class offensive : public soldiers
 {
-    void attack ()
-    {
-        cout << "ff";
-    }
+    offensive(string n,double d,string R);
+    void attack ();
+    void defend();
+    void report();
 } ;
 class defensive : public soldiers
-{
+{   
+    defensive (string n,double d,string R);
+    void attack ();
+    void defend();
+    void report();
 
 } ;
 class adaptable : public soldiers
 {
-
-} ;
-
+    adaptable(string n,double d,string R);
+    void attack ();
+    void defend();
+    void report();
+} ; 
 #endif
