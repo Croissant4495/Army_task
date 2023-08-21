@@ -19,7 +19,11 @@ public:
 };
 class tank : public vehicles
 {
-
+    tank(string n, string S);
+    void attack ();
+    void defend();
+    void report();
+} ;
 } ;
 class helicopter : public vehicles
 {
