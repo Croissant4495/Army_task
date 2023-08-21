@@ -1,4 +1,8 @@
+#ifndef _SOLDIER_H_
+#define _SOLDIER_H_
+
 #include <iostream>
+
 using namespace std;
 
 class soldiers
@@ -42,3 +46,5 @@ class adaptable : public soldiers
 {
 
 } ;
+
+#endif
