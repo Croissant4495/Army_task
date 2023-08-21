@@ -1,6 +1,4 @@
-#include "Soldier.h"
-#include "Army.h"
-#include "Vehicles.h"
+#include "Manager.h"
 
 int main()
 {

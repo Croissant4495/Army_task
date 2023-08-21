@@ -1,14 +1,16 @@
 #include "Vehicles.h"
 
-tank :: tank(string n,string s)
+tank :: tank(string n)
 {
     name=n;
-    special_funcionility=s;
+    special_funcionility = "Power Shot";
+    damage = 20;
 }
 
-helicopter :: helicopter(string n,string s){
+helicopter :: helicopter(string n){
     name=n;
-    special_funcionility=s;
+    special_funcionility = "Fly and shoot";
+    damage = 10;
 }
 
 void tank:: fire()

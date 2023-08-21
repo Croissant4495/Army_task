@@ -1,10 +1,10 @@
 #include "Soldier.h"
 
-offensive :: offensive(string n,double d,string R)
+offensive :: offensive(string n)
     {
         name=n;
-        damage =d;
-        Rank =R;
+        damage = 15;
+        Rank = "Rookie";
     }
 void offensive :: attack(){
         cout << "offensive attack" << endl;
@@ -19,11 +19,11 @@ void offensive :: report(){
     }
 
 
-defensive :: defensive(string n,double d,string R){
+defensive :: defensive(string n){
     {
         name=n;
-        damage =d;
-        Rank =R;
+        damage = 5;
+        Rank = "Rookie";
     }
 }
 void defensive :: attack(){
@@ -39,11 +39,11 @@ void defensive :: report(){
     }
 
 
-adaptable :: adaptable(string n,double d,string R){
+adaptable :: adaptable(string n){
     {
         name=n;
-        damage =d;
-        Rank =R;
+        damage = 10;
+        Rank = "Rookie";
     }
 }
 void adaptable :: attack(){

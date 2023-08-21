@@ -11,6 +11,7 @@ class vehicles
 public:
     string name;
     string special_funcionility ;
+    double damage;
 
     virtual void fire ()=0;
     virtual void Move ()=0;
@@ -21,7 +22,7 @@ public:
 class tank : public vehicles
 {
 public:
-    tank(string n, string S);
+    tank(string n);
     void fire ();
     void Move();
     void report();
@@ -30,7 +31,8 @@ public:
 class helicopter : public vehicles
 {
 public:
-    helicopter(string n, string S);
+
+    helicopter(string n);
     void fire ();
     void Move();
     void report();

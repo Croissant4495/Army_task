@@ -22,7 +22,7 @@ public:
 class offensive : public soldiers
 {
 public:
-    offensive(string n,double d,string R);
+    offensive(string n);
     void attack ();
     void defend();
     void report();
@@ -30,7 +30,7 @@ public:
 class defensive : public soldiers
 {   
 public:
-    defensive (string n,double d,string R);
+    defensive (string n);
     void attack ();
     void defend();
     void report();
@@ -39,7 +39,7 @@ public:
 class adaptable : public soldiers
 {
 public:
-    adaptable(string n,double d,string R);
+    adaptable(string n);
     void attack ();
     void defend();
     void report();
