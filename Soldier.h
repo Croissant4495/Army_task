@@ -2,6 +2,7 @@
 #define _SOLDIER_H_
 
 #include <iostream>
+#include <string>
 
 using namespace std;
 
