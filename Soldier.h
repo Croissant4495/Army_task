@@ -23,12 +23,11 @@ public:
     virtual void defend ()=0;
     virtual void report ()=0;
     virtual void attack ()=0;
-    virtual void die ()=0;
-
 
 };
 class offensive : public soldiers
 {
+public:
     offensive(string n,double d,string R);
     void attack ();
     void defend();
@@ -36,6 +35,7 @@ class offensive : public soldiers
 } ;
 class defensive : public soldiers
 {   
+public:
     defensive (string n,double d,string R);
     void attack ();
     void defend();
@@ -44,6 +44,7 @@ class defensive : public soldiers
 } ;
 class adaptable : public soldiers
 {
+public:
     adaptable(string n,double d,string R);
     void attack ();
     void defend();

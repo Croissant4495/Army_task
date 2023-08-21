@@ -1,5 +1,5 @@
-#ifndef _VEHICLES_H_
-#define _VEHICLES_H_
+#ifndef VEHICLES_H
+#define VEHICLES_H
 
 #include <iostream>
 #include <string>
@@ -17,18 +17,24 @@ public:
     virtual void report ()=0;
 
 };
+
 class tank : public vehicles
 {
+public:
     tank(string n, string S);
-    void attack ();
-    void defend();
+    void fire ();
+    void Move();
     void report();
 } ;
-} ;
+
 class helicopter : public vehicles
 {
-
-} ;
+public:
+    helicopter(string n, string S);
+    void fire ();
+    void Move();
+    void report();
+};
 
 
 #endif
