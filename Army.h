@@ -11,16 +11,12 @@ class Army
 {
 public:
     int id;
-    vector<soldiers> soldier_list;
-    vector<vehicles> vehicle_list;
+    vector<soldiers*> soldier_list;
+    vector<vehicles*> vehicle_list;
 
-    Army(int id){
-        this->id = id;
-    }
-    ~Army(){
-        soldier_list.erase(soldier_list.begin(), soldier_list.end());
-        vehicle_list.erase(vehicle_list.begin(), vehicle_list.end());
-    }
+    Army(int id);
+    ~Army();
+    
     // Methods to add soldiers/vehicles
     void add_soldier(soldiers* new_soldier);
 

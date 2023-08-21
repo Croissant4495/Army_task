@@ -6,7 +6,6 @@
 
 using namespace std;
 
-// Soldiers should be an abstract class that dosent have constructor and subclasses are the ones
 class soldiers
 {
 public:
@@ -14,11 +13,6 @@ public:
     double damage;
     string special_ability;
     string Rank;
-
-    ~soldiers()
-    {
-        cout << "THE WAR IS OVER!!";
-    }
   
     virtual void defend ()=0;
     virtual void report ()=0;

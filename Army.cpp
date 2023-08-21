@@ -1,49 +1,58 @@
 #include "Army.h"
 
+Army :: Army(int id){
+    this->id = id;
+}
+
+Army :: ~Army(){
+        soldier_list.erase(soldier_list.begin(), soldier_list.end());
+        vehicle_list.erase(vehicle_list.begin(), vehicle_list.end());
+}
+
 void Army::add_soldier(soldiers* new_soldier){
-    soldier_list.push_back(*new_soldier);
+    soldier_list.push_back(new_soldier);
 }
 
 void Army:: add_vehicle(vehicles* new_vehicle){
-        vehicle_list.push_back(*new_vehicle);
+        vehicle_list.push_back(new_vehicle);
 }
 
 void Army:: attack_all(){
     for (int i = 0; i < soldier_list.size(); i++){
-            soldier_list[i].attack();
+            soldier_list[i]->attack();
         }
 
     for (int i = 0; i < vehicle_list.size(); i++){
-            vehicle_list[i].fire();
+            vehicle_list[i]->fire();
         }
 }
 
 void Army:: attack_soldier_name(string name){
     for (int i = 0; i < soldier_list.size(); i++){
-            if (soldier_list[i].name == name){
-                soldier_list[i].attack();
+            if (soldier_list[i]->name == name){
+                soldier_list[i]->attack();
             }
         }
 }
 
 void Army:: attack_vehicle_name(string name){
     for (int i = 0; i < vehicle_list.size(); i++){
-            if (vehicle_list[i].name == name){
-                vehicle_list[i].fire();
+            if (vehicle_list[i]->name == name){
+                vehicle_list[i]->fire();
             }
         }
 }
 
 void Army:: move_all(){
     for (int i = 0; i < vehicle_list.size(); i++){
-            vehicle_list[i].Move();
+            vehicle_list[i]->Move();
         }
 }
 
 void Army:: move_name(string name){
     for (int i = 0; i < vehicle_list.size(); i++){
-            if (vehicle_list[i].name == name){
-                vehicle_list[i].Move();
+            if (vehicle_list[i]->name == name){
+                vehicle_list[i]->Move();
             }
         }
 }
@@ -51,11 +60,11 @@ void Army:: move_name(string name){
 void Army:: report_all(){
     cout << "Soldiers reporting:" << endl;
     for (int i = 0; i < soldier_list.size(); i++){
-            soldier_list[i].report();
+            soldier_list[i]->report();
         }
     
     cout << endl << "Vehicles reporting:" << endl;
     for (int i = 0; i < vehicle_list.size(); i++){
-            vehicle_list[i].report();
+            vehicle_list[i]->report();
         }
 }
