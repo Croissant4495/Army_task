@@ -26,7 +26,7 @@ defensive :: defensive(string n){
     {
         name=n;
         damage = 5;
-        speciality = "Rookie";
+        speciality = arr[rand() % 4];
     }
 }
 void defensive :: attack(){
@@ -46,7 +46,7 @@ adaptable :: adaptable(string n){
     {
         name=n;
         damage = 10;
-        speciality = "Rookie";
+        speciality = arr[rand() % 4];
     }
 }
 void adaptable :: attack(){

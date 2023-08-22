@@ -9,7 +9,7 @@ class Manager
 {
 public:
     Army myArmy;
-    Army enemyArmy;
+    Army enemyArmy; 
 
     Manager() : myArmy(1) , enemyArmy(2){
 
@@ -21,9 +21,9 @@ public:
     void show_army(int id);
     void attack_army(int id);
     void defend_army(int id);
+    void show_stats();
     void interface();
     void army_dead(int id);
-
 
 };
 

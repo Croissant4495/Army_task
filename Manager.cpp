@@ -55,7 +55,7 @@ void Manager :: menu_add(){
         do {
             cout<<"Enter the number of offensive soldiers you want:"<<endl;
             cin >> temp;
-        }while((temp + soldier_count) > 7 && temp > 0);
+        }while((temp + soldier_count) > 7 || temp < 0);
 
         for(i=0; i<temp; i++)
         {
@@ -71,7 +71,7 @@ void Manager :: menu_add(){
             do {
                 cout<<"Enter the number of defensive soldiers:"<<endl;
                 cin >> temp;
-            }while((temp + soldier_count) > 7 && temp > 0);
+            }while((temp + soldier_count) > 7 || temp < 0);
 
             for(i=0; i<temp; i++)
             {
@@ -88,7 +88,7 @@ void Manager :: menu_add(){
             do {
                 cout<<"Enter the number of adaptable soldiers:"<<endl;
                 cin >> temp;
-            }while((temp + soldier_count) > 7 && temp > 0);
+            }while((temp + soldier_count) > 7 || temp < 0);
 
             for(i=0; i<temp; i++)
             {
@@ -105,7 +105,7 @@ void Manager :: menu_add(){
         do {
             cout<<"Enter the number of helicopters:"<<endl;
             cin >> temp;
-        }while((temp + vehicle_count) > 3 && temp > 0);
+        }while((temp + vehicle_count) > 3 || temp < 0);
     
         for(i=0; i<temp; i++)
         {
@@ -120,7 +120,7 @@ void Manager :: menu_add(){
             do {       
                 cout<<"Enter the number of tanks:"<<endl;
                 cin >> temp;
-            }while((temp + vehicle_count) > 3 && temp > 0);
+            }while((temp + vehicle_count) > 3 || temp < 0);
 
             for(i=0; i<temp; i++)
             {
@@ -171,7 +171,11 @@ void Manager :: attack_army(int id){
 
     // Army is dead
     if (damaged_army->health <= 0){
-        army_dead(!id);
+        if(id == 1){
+            army_dead(2);
+        }else{
+            army_dead(1);
+        }
     }
 
 }
@@ -183,6 +187,18 @@ void Manager :: defend_army(int id){
     }else{
         enemyArmy.shield += 7;
     }
+}
+
+void Manager :: show_stats(){
+    cout << endl << "Your army:" << endl;
+    cout << "Health: " << myArmy.health << ", Shield: " << myArmy.shield << ", Damage: " << myArmy.damage << endl;
+
+    cout << "_______Separator_______" << endl;
+
+    cout << "Enemy army:" << endl;
+    cout << "Health: " << enemyArmy.health << ", Shield: " << enemyArmy.shield << ", Damage: " << enemyArmy.damage << endl;
+
+    cout << "_______Separator_______" << endl;
 }
 
 void Manager :: interface(){
@@ -211,10 +227,10 @@ void Manager :: interface(){
 
 void Manager :: army_dead(int id){
     if (id == 1){
-        cout << "You died -_-" << endl << "Game Over";
+        cout << endl << "You died -_-" << endl << "Game Over";
         exit(0);
     }else{
-        cout << "3ashhhh :-)" << endl << "You won";
+        cout << endl << "3ashhhh :-)" << endl << "You won";
         exit(0);
     }
 }
