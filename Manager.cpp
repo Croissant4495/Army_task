@@ -1,12 +1,19 @@
 #include "Manager.h"
 
-soldiers* Manager :: new_soldier(int option){
+string soldier_names[7] = {"Ahmed", "Mohamed", "Hassan", "Hussein", "Maged", "Nour", "Yusuf"};
+string vehicle_names[4] = {"Spinner", "Demolisher", "Panzer", "Fighter Jet"};
+
+soldiers* Manager :: new_soldier(int option, int id = 1){
         soldiers* soldierPtr;
         string temp_name, temp_rank;
-        double temp_dmg; 
-        cout << "Enter Name: ";
-        cin >> temp_name;
-        cout << endl;
+        double temp_dmg;
+        if (id == 1){
+            cout << "Enter Name: ";
+            cin >> temp_name;
+            cout << endl;
+        }else{
+            temp_name = soldier_names[rand() % 7];
+        }
         switch (option){
             case 1:{ // offensive
                 soldierPtr = new offensive(temp_name);
@@ -24,13 +31,17 @@ soldiers* Manager :: new_soldier(int option){
         return soldierPtr;
 }
 
-vehicles* Manager :: new_vehicle(int option){
+vehicles* Manager :: new_vehicle(int option, int id = 1){
         vehicles* vehiclePtr;
         string temp_name, temp_rank;
         double temp_dmg; 
-        cout << "Enter Name: ";
-        cin >> temp_name;
-        cout << endl;
+        if (id == 1){
+            cout << "Enter Name: ";
+            cin >> temp_name;
+            cout << endl;
+        }else{
+            temp_name = vehicle_names[rand() % 4];
+        }
         switch (option){
             case 1:{ // tank
                 vehiclePtr = new tank(temp_name);
@@ -97,10 +108,9 @@ void Manager :: menu_add(){
                 myArmy.health += 15;
                 myArmy.damage += 10;
             }
-
         }
 
-        // Helicopters
+        // Tank
         // Validate
         do {
             cout<<"Enter the number of helicopters:"<<endl;
@@ -111,11 +121,11 @@ void Manager :: menu_add(){
         {
             myArmy.add_vehicle(new_vehicle(1));
             vehicle_count++;
-            myArmy.health += 40;
+            myArmy.health += 35;
         }
         
         if (vehicle_count < 3){
-            // Tanks
+            // Helicopter
             // Validate
             do {       
                 cout<<"Enter the number of tanks:"<<endl;
@@ -126,7 +136,7 @@ void Manager :: menu_add(){
             {
                 myArmy.add_vehicle(new_vehicle(2));
                 vehicle_count++;
-                myArmy.health += 30;
+                myArmy.health += 25;
             }
         }
         if (soldier_count){
@@ -139,6 +149,7 @@ void Manager :: show_army(int id){
         cout << "Your Army:" << endl;
         myArmy.report_all();
     }else{
+        cout << "Enemy Army:" << endl;
         enemyArmy.report_all();
     }
 }
@@ -193,12 +204,12 @@ void Manager :: show_stats(){
     cout << endl << "Your army:" << endl;
     cout << "Health: " << myArmy.health << ", Shield: " << myArmy.shield << ", Damage: " << myArmy.damage << endl;
 
-    cout << "_______Separator_______" << endl;
+    cout << "______________" << endl;
 
     cout << "Enemy army:" << endl;
     cout << "Health: " << enemyArmy.health << ", Shield: " << enemyArmy.shield << ", Damage: " << enemyArmy.damage << endl;
 
-    cout << "_______Separator_______" << endl;
+    cout << "______________" << endl;
 }
 
 void Manager :: interface(){
@@ -232,5 +243,70 @@ void Manager :: army_dead(int id){
     }else{
         cout << endl << "3ashhhh :-)" << endl << "You won";
         exit(0);
+    }
+}
+
+void Manager :: generate_enemy(){
+    // Generate random numbers from 0 to remaining soldiers
+    int remaining = 7;
+    int soldier_count = 0;
+    int num = rand() % remaining;
+    
+    // offensive
+    remaining -= num;
+    for (int i = 0; i < num; i++){
+        enemyArmy.add_soldier(new_soldier(1, 2));
+        enemyArmy.health += 10;
+        enemyArmy.damage += 15;
+        soldier_count++;
+    }
+
+    // defensive
+    num = rand() % remaining;
+    remaining -= num;
+    for (int i = 0; i < num; i++){
+        enemyArmy.add_soldier(new_soldier(2, 2));
+        enemyArmy.health += 20;
+        enemyArmy.damage += 5;
+        soldier_count++;
+    }
+
+    // adaptable
+    num = rand() % remaining;
+    remaining -= num;
+    for (int i = 0; i < num; i++){
+        enemyArmy.add_soldier(new_soldier(3, 2));
+        enemyArmy.health += 15;
+        enemyArmy.damage += 10;
+        soldier_count++;
+    }
+
+    // Tank
+    remaining = 3;
+    num = rand() % remaining;
+    remaining -= num;
+    for (int i = 0; i < num; i++){
+        enemyArmy.add_vehicle(new_vehicle(1, 2));
+        enemyArmy.health += 35;
+    }
+    
+    // Helicopter
+    num = rand() % remaining;
+    remaining -= num;
+    for (int i = 0; i < num; i++){
+        enemyArmy.add_vehicle(new_vehicle(2, 2));
+        enemyArmy.health += 25;
+    }
+
+    enemyArmy.damage = enemyArmy.damage / soldier_count;
+}
+
+void Manager :: move_enemy(){
+    int choice = rand() % 2;
+    
+    if (choice == 0){
+        attack_army(2);
+    }else{
+        defend_army(2);
     }
 }

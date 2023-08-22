@@ -2,15 +2,21 @@
 
 int main()
 {
-    Manager new_M;
-    new_M.menu_add();
+    Manager game;
+    game.menu_add();
     cout << "________SPEARATOR________" << endl;
-    new_M.show_army(1);
+    game.show_army(1);
+    cout << "________SPEARATOR________" << endl;
+    game.generate_enemy();
+    game.show_army(2);
+    cout << "________SPEARATOR________" << endl;
+    cout << endl;
 
     while (true)
     {
-        new_M.show_stats();
-        new_M.interface();
+        game.show_stats();
+        game.interface();
+        game.move_enemy();
     }
     
 

@@ -15,15 +15,20 @@ public:
 
     }
 
-    soldiers* new_soldier(int option);
-    vehicles* new_vehicle(int option);
+    soldiers* new_soldier(int option, int id);
+    vehicles* new_vehicle(int option, int id);
+   
     void menu_add();
+    void show_stats();
+    void interface();
+
     void show_army(int id);
     void attack_army(int id);
     void defend_army(int id);
-    void show_stats();
-    void interface();
     void army_dead(int id);
+    
+    void generate_enemy();
+    void move_enemy();
 
 };
 
