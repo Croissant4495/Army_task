@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include <random>
 
 using namespace std;
 
@@ -12,7 +13,7 @@ public:
     string name;
     double damage;
     string special_ability;
-    string Rank;
+    string speciality;
   
     virtual void defend ()=0;
     virtual void report ()=0;

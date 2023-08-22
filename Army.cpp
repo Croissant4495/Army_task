@@ -2,6 +2,9 @@
 
 Army :: Army(int id){
     this->id = id;
+    health = 0;
+    shield = 0;
+    damage = 0;
 }
 
 Army :: ~Army(){

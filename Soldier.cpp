@@ -1,10 +1,13 @@
 #include "Soldier.h"
 
+string arr[4] = {"Engineer", "Knight", "Sniper", "Medic"};
+
 offensive :: offensive(string n)
     {
         name=n;
         damage = 15;
-        Rank = "Rookie";
+        speciality = arr[rand() % 4];
+
     }
 void offensive :: attack(){
         cout << "offensive attack" << endl;
@@ -15,7 +18,7 @@ void offensive :: defend(){
     }
 
 void offensive :: report(){
-        cout << "Name : " << name << ", Damage: " << damage << ", Rank: " << Rank << endl;
+        cout << "Name : " << name << ", Damage: " << damage << ", speciality: " << speciality << endl;
     }
 
 
@@ -23,7 +26,7 @@ defensive :: defensive(string n){
     {
         name=n;
         damage = 5;
-        Rank = "Rookie";
+        speciality = "Rookie";
     }
 }
 void defensive :: attack(){
@@ -35,7 +38,7 @@ void defensive :: defend(){
     }
 
 void defensive :: report(){
-        cout << "Name : " << name << ", Damage: " << damage << ", Rank: " << Rank << endl;
+        cout << "Name : " << name << ", Damage: " << damage << ", speciality: " << speciality << endl;
     }
 
 
@@ -43,7 +46,7 @@ adaptable :: adaptable(string n){
     {
         name=n;
         damage = 10;
-        Rank = "Rookie";
+        speciality = "Rookie";
     }
 }
 void adaptable :: attack(){
@@ -55,5 +58,5 @@ void adaptable :: defend(){
     }
 
 void adaptable :: report(){
-        cout << "Name : " << name << ", Damage: " << damage << ", Rank: " << Rank << endl;
+        cout << "Name : " << name << ", Damage: " << damage << ", speciality: " << speciality << endl;
     }

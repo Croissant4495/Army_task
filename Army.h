@@ -11,6 +11,9 @@ class Army
 {
 public:
     int id;
+    int health;
+    int shield;
+    int damage;
     vector<soldiers*> soldier_list;
     vector<vehicles*> vehicle_list;
 
